@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PREDICTION DU CHURN DES CLIENTS TUNISIE TELECOM</h1>
+    <form action="/predict" method="POST">
+
+        <label for="nb_jours_abonne">Nombre de jours d'abonnement:</label>
+        <input type="text" id="nb_jours_abonne" name="nb_jours_abonne"><br><br>
+
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre"><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br><br>
+
+        <label for="marie">Etat civil:</label>
+        <input type="text" id="marie" name="marie"><br><br>
+
+        <label for="nb_appel_jour">Nombre d'appels par jour:</label>
+        <input type="number" id="nb_appel_jour" name="nb_appel_jour"><br><br>
+        
+        <label for="duree_appel_jour">Durée de l'appel par jour en minutes:</label>
+        <input type="number" id="duree_appel_jour" name="duree_appel_jour"><br><br>
+
+        <label for="cout_appel_jour">Cout des appels par jour:</label>
+        <input type="number" id="cout_appel_jour" name="cout_appel_jour"><br><br>
+
+        <label for="nb_appel_soiree">Nombre d'appels par soirée:</label>
+        <input type="number" id="nb_appel_soiree" name="nb_appel_soiree"><br><br>
+        
+        <label for="duree_appel_soiree">Durée de l'appel par soirée en minutes:</label>
+        <input type="number" id="duree_appel_soiree" name="duree_appel_soiree"><br><br>
+
+        <label for="cout_appel_soiree">Cout des appels par soirée:</label>
+        <input type="number" id="cout_appel_soiree" name="cout_appel_soiree"><br><br>
+
+        <label for="nb_appel_nuit">Nombre d'appels par nuit:</label>
+        <input type="number" id="nb_appel_nuit" name="nb_appel_nuit"><br><br>
+        
+        <label for="duree_appel_nuit">Durée de l'appel par nuit en minutes:</label>
+        <input type="number" id="duree_appel_nuit" name="duree_appel_nuit"><br><br>
+
+        <label for="cout_appel_nuit">Cout des appels par jour:</label>
+        <input type="number" id="cout_appel_nuit" name="cout_appel_nuit"><br><br>
+
+        <label for="nb_appel_inter">Nombre d'appels international:</label>
+        <input type="number" id="nb_appel_inter" name="nb_appel_inter"><br><br>
+        
+        <label for="duree_appel_inter">Durée de l'appel international en minutes:</label>
+        <input type="number" id="duree_appel_inter" name="duree_appel_inter"><br><br>
+
+        <label for="cout_appel_inter">Cout des appels international:</label>
+        <input type="number" id="cout_appel_inter" name="cout_appel_inter"><br><br>
+
+        <label for="active_msg_vocaux">Activer option message vocaux:</label>
+        <input type="text" id="active_msg_vocaux" name="active_msg_vocaux"><br><br>
+
+        <label for="nb_msg_vocaux">Nombre des messages vocaux:</label>
+        <input type="number" id="nb_msg_vocaux" name="nb_msg_vocaux"><br><br>
+
+        <label for="nb_reclamation">Nombre des réclamations:</label>
+        <input type="number" id="nb_reclamation" name="nb_reclamation"><br><br>
+
+        <label for="offer_type">Le nom d'offre tarifaire suivie:</label>
+        <select id="offer_type" name="offer_type">
+            <option value="Hayya">Hayya</option>
+            <option value="PRE - 1=11">PRE - 1=11</option>
+            <option value="PRE - 900 bonus">PRE - 900 bonus</option>
+            <option value="PRE - AHLA">PRE - AHLA</option>
+            <option value="PRE - Binetna">PRE - Binetna</option>
+            <option value="PRE - Classic">PRE - Classic</option>
+            <option value="PRE - Club Optimum Plus">PRE - Club Optimum Plus</option>
+            <option value="PRE - Corporate Optimum Family">PRE - Corporate Optimum Family</option>
+            <option value="PRE - CSS 1000% New">PRE - CSS 1000% New</option>
+            <option value="PRE - CSS Mobile 1000%">PRE - CSS Mobile 1000%</option>
+            <option value="PRE - CSSM 35mil/min">PRE - 1=11</option>
+            <option value="PRE - Day Pass">PRE - Day Pass</option>
+            <option value="PRE - Doublé">PRE - Doublé</option>
+            <option value="PRE - Double Reinstal">PRE - Double Reinstal</option>
+            <option value="PRE - E.M. 1000%">PRE - 1=11</option>
+            <option value="PRE - Elissa 300%">PRE - Elissa 300%</option>
+            <option value="PRE - Employe TT">PRE - Employe TT</option>
+            <option value="PRE - ESS 1000% New">PRE - ESS 1000% New</option>
+            <option value="PRE - ESS Mobile 35mil/min">PRE - ESS Mobile 35mil/min</option>
+            <option value="PRE - Jawhara 35Mil">PRE - Jawhara 35Mil</option>
+            <option value="PRE - New Elissa">PRE - New Elissa</option>
+            <option value="PRE - offre 40">PRE - offre 40</option>
+            <option value="PRE - Offre WL5">PRE - Offre WL5</option>
+            <option value="PRE - Oulidha 1000%">PRE - Oulidha 1000%</option>
+            <option value="PRE - Oulidha 2000%">PRE - Oulidha 2000%</option>
+            <option value="PRE - Pack cle 4G">PRE - Pack cle 4G</option>
+            <option value="PRE - Pass Etudiant">PRE - Pass Etudiant</option>
+            <option value="PRE - Taraji Mobile 1500%">PRE - Taraji Mobile 1500%</option>
+            <option value="PRE - Tawwa">PRE - Tawwa</option>
+            <option value="PRE - TM 35mil/min">PRE - TM 35mil/min</option>
+            <option value="PRE - Touriste SIM">PRE - Touriste SIM</option>
+            <option value="PRE - Trankil ELISSA">PRE - Trankil ELISSA</option>
+            <option value="PRE - Trankil TT">PRE - Trankil TT</option>
+            <option value="PRE - TT 1000%">PRE - TT 1000%</option>
+            <option value="PRE - TT 1500%">PRE - TT 1500%</option>
+            <option value="PRE - TT 2000%">PRE - TT 2000%</option>
+            <option value="PRE - TT 300%">PRE - TT 300%</option>
+            <option value="PRE - Vendor_RE">PRE - Vendor_RE</option>
+            <option value="SMS discount">SMS discount</option>
+
+            
+        </select>
+        <input type="submit" value="Predict">
+    </form>
+    {%if prediction%}
+        <p class="text center">Le résultat est{{prediction}}</p>
+    {%endif%}
+</body>
+</html>
