@@ -7,64 +7,73 @@
 </head>
 <body>
     <h1>PREDICTION DU CHURN DES CLIENTS TUNISIE TELECOM</h1>
-    <form action="/predict" method="POST">
+    <form action="/predict" method="post">
 
         <label for="nb_jours_abonne">Nombre de jours d'abonnement:</label>
         <input type="text" id="nb_jours_abonne" name="nb_jours_abonne"><br><br>
 
-        <label for="genre">Genre:</label>
-        <input type="text" id="genre" name="genre"><br><br>
+        <label>Genre:</label><br>
+        <input type="radio" id="genre_homme" name="genre" value="homme"checked>
+        <label for="genre_homme">Homme</label><br>
+        <input type="radio" id="genre_femme" name="genre" value="femme">
+        <label for="genre_femme">Femme</label><br><br>  
 
         <label for="age">Age:</label>
-        <input type="number" id="age" name="age"><br><br>
+        <input type="text" id="age" name="age"><br><br>
 
-        <label for="marie">Etat civil:</label>
-        <input type="text" id="marie" name="marie"><br><br>
+        <label>Etat civil:</label><br>
+        <input type="radio" id="marie_oui" name="marie" value="oui" checked>
+        <label for="marie_oui">Oui</label><br>
+        <input type="radio" id="marie_non" name="marie" value="non">
+        <label for="marie_non">Non</label><br><br>
 
         <label for="nb_appel_jour">Nombre d'appels par jour:</label>
-        <input type="number" id="nb_appel_jour" name="nb_appel_jour"><br><br>
+        <input type="text" id="nb_appel_jour" name="nb_appel_jour"><br><br>
         
         <label for="duree_appel_jour">Durée de l'appel par jour en minutes:</label>
-        <input type="number" id="duree_appel_jour" name="duree_appel_jour"><br><br>
+        <input type="text" id="duree_appel_jour" name="duree_appel_jour"><br><br>
 
         <label for="cout_appel_jour">Cout des appels par jour:</label>
-        <input type="number" id="cout_appel_jour" name="cout_appel_jour"><br><br>
+        <input type="text" id="cout_appel_jour" name="cout_appel_jour"><br><br>
 
         <label for="nb_appel_soiree">Nombre d'appels par soirée:</label>
-        <input type="number" id="nb_appel_soiree" name="nb_appel_soiree"><br><br>
+        <input type="text" id="nb_appel_soiree" name="nb_appel_soiree"><br><br>
         
         <label for="duree_appel_soiree">Durée de l'appel par soirée en minutes:</label>
-        <input type="number" id="duree_appel_soiree" name="duree_appel_soiree"><br><br>
+        <input type="text" id="duree_appel_soiree" name="duree_appel_soiree"><br><br>
 
         <label for="cout_appel_soiree">Cout des appels par soirée:</label>
-        <input type="number" id="cout_appel_soiree" name="cout_appel_soiree"><br><br>
+        <input type="text" id="cout_appel_soiree" name="cout_appel_soiree"><br><br>
 
         <label for="nb_appel_nuit">Nombre d'appels par nuit:</label>
-        <input type="number" id="nb_appel_nuit" name="nb_appel_nuit"><br><br>
+        <input type="text" id="nb_appel_nuit" name="nb_appel_nuit"><br><br>
         
         <label for="duree_appel_nuit">Durée de l'appel par nuit en minutes:</label>
-        <input type="number" id="duree_appel_nuit" name="duree_appel_nuit"><br><br>
+        <input type="text" id="duree_appel_nuit" name="duree_appel_nuit"><br><br>
 
         <label for="cout_appel_nuit">Cout des appels par jour:</label>
-        <input type="number" id="cout_appel_nuit" name="cout_appel_nuit"><br><br>
+        <input type="text" id="cout_appel_nuit" name="cout_appel_nuit"><br><br>
 
         <label for="nb_appel_inter">Nombre d'appels international:</label>
-        <input type="number" id="nb_appel_inter" name="nb_appel_inter"><br><br>
+        <input type="text" id="nb_appel_inter" name="nb_appel_inter"><br><br>
         
         <label for="duree_appel_inter">Durée de l'appel international en minutes:</label>
-        <input type="number" id="duree_appel_inter" name="duree_appel_inter"><br><br>
+        <input type="text" id="duree_appel_inter" name="duree_appel_inter"><br><br>
 
         <label for="cout_appel_inter">Cout des appels international:</label>
-        <input type="number" id="cout_appel_inter" name="cout_appel_inter"><br><br>
+        <input type="text" id="cout_appel_inter" name="cout_appel_inter"><br><br>
 
-        <label for="active_msg_vocaux">Activer option message vocaux:</label>
-        <input type="text" id="active_msg_vocaux" name="active_msg_vocaux"><br><br>
+        <label>Activer option message vocaux:</label><br>
+        <input type="radio" id="active_msg_vocaux_oui" name="active_msg_vocaux" value="oui" checked>
+        <label for="active_msg_vocaux_yes">Oui</label><br>
+        <input type="radio" id="active_msg_vocaux_no" name="active_msg_vocaux" value="non">
+        <label for="active_msg_vocaux_non">Non</label><br><br>
 
         <label for="nb_msg_vocaux">Nombre des messages vocaux:</label>
-        <input type="number" id="nb_msg_vocaux" name="nb_msg_vocaux"><br><br>
+        <input type="text" id="nb_msg_vocaux" name="nb_msg_vocaux"><br><br>
 
         <label for="nb_reclamation">Nombre des réclamations:</label>
-        <input type="number" id="nb_reclamation" name="nb_reclamation"><br><br>
+        <input type="text" id="nb_reclamation" name="nb_reclamation"><br><br>
 
         <label for="offer_type">Le nom d'offre tarifaire suivie:</label>
         <select id="offer_type" name="offer_type">
@@ -110,10 +119,9 @@
 
             
         </select>
-        <input type="submit" value="Predict">
+        <button type="submit" >Predict</button>
     </form>
-    {%if prediction%}
-        <p class="text center">Le résultat est{{prediction}}</p>
-    {%endif%}
+    
+    
 </body>
 </html>
