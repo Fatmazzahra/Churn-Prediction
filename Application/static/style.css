@@ -1,0 +1,170 @@
+
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+
+body {
+    background-image: url('C://Users/chino/OneDrive/Bureau/stage_PFE/churn_project/Application/static/TT.jpg');
+    background-size: cover; /* Set background size to auto */
+
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Set background color */
+    font-family: Arial, sans-serif; /* Set font family */
+}
+
+.container {
+    position: relative;
+    max-width: 1400px; /* Adjust the maximum width of the form container */
+    margin: 50px auto; /* Center the container with top and bottom margin */
+    padding: 30px; /* Increase horizontal padding */
+    background-color: transparent;
+    border: rgba(255, 255, 255, 0.9); /* Very light grey with opacity */
+    backdrop-filter: blur(50PX);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    align-items: center; 
+}
+
+.logo {
+    position: absolute; /* Position logo absolutely within the container */
+    top: 30px; /* Adjust top position for vertical alignment */
+    left: 70px; /* Adjust right position for horizontal alignment */
+    width: 100px; /* Set desired width for the logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
+h1 {
+    font-size: 29px;
+    text-align: center;
+    font-family:   'Oswald', sans-serif;
+    color: white; /* Rainbow color: Red */
+    margin-bottom: 50px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.form-row label {
+    flex: 0 0 13%; /* Set a fixed width for the label */
+    margin-right: 10px; /* Adjust margin between label and input */
+}
+
+
+.form-row input[type="number"],
+.form-row select {
+    flex: 0 0 5%; /* Set a fixed width for the input */
+    height: 30px; /* Adjust the input height */
+    padding: 5px; /* Adjust padding inside the input */
+    border: 1px solid #f0f0f0; /* Add a border to the input */
+    border-radius: 4px; /* Add border radius to the input */
+    box-sizing: border-box; /* Include padding and border in width */
+    background: transparent;
+    color:#f0f0f0;
+}
+
+
+label {
+    font-family:  'Montserrat', sans-serif;
+    color: white; /* Rainbow color: Purple */
+    white-space: nowrap;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+select,
+button,
+input[type="radio"] {
+    width: 30%;
+    height:300;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255 , .2);
+    border-radius: 40px;
+}
+
+input[type="radio"] {
+    margin-right: 7 px;
+}
+
+
+
+.gender-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center buttons horizontally */
+    margin-bottom: 10px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid #f0f0f0; /* Light grey border */
+    border-radius: 50%; /* Make buttons round */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Add transition for smooth effect */
+    margin: 0 10px; /* Add space between buttons */
+    color: white; /* Text color */
+}
+
+.radio-label:hover,
+.radio-label input[type="radio"]:checked + label {
+    background-color: #f0f0f0; /* Light grey on hover or when checked */
+    border-color: #2d1f85; /* Dark purple border on hover or when checked */
+    color: #2d1f85; /* Text color on hover or when checked */
+}
+
+.radio-label input[type="radio"] {
+    display: none; /* Hide the actual radio button */
+}
+
+.radio-label i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+/* Styling for selected radio button */
+.radio-label input[type="radio"]:checked + label i {
+    color: #2d1f85; /* Change icon color when selected */
+    font-weight: bold; /* Make text bold when selected */
+}
+
+button {
+    background-color: white;
+    color: #2d1f85;
+    border: 1px solid #2d1f85; /* Border style */
+    border-radius: 5px;
+    padding: 12px 40px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1; /* Ensure button is above h3 */
+}
+
+button:hover {
+    background-color: #FFC0CB; /* Lighter pink on hover */
+}
+
+
+h3 {
+    margin-bottom: 20px; /* Add margin below h3 for spacing */
+    color: #2d1f85; /* Set text color */
+}
+

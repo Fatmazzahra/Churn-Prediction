@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-image: url('static/TT.jpg');">
+    <div class="container">
+        
+        
+        <!-- Embedding Power BI dashboard using iframe -->
+        <div class="powerbi-embed-container">
+            <iframe title="dashbord_churn_tt"
+                    width="1200" height="630" 
+                    src="https://app.powerbi.com/view?r=eyJrIjoiNGZkZWJhM2MtYWZjNC00YzFmLThjYjUtOTA5YTkyYzViOWE3IiwidCI6ImRiZDY2NjRkLTRlYjktNDZlYi05OWQ4LTVjNDNiYTE1M2M2MSIsImMiOjl9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+    </div>
+</body>
+</html>

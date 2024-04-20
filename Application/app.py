@@ -1,11 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import numpy as np
 import logging 
 
 import pickle
 model =pickle.load(open("Model/final_modelxgb.pkl", "rb"))
 
-app = Flask(__name__)
+
+app = Flask(__name__, static_folder='static', static_url_path='/static')
+
 logging.basicConfig(level=logging.INFO)
 
 @app.route('/')
@@ -42,6 +44,7 @@ def predict():
     init_features = {}
     for field, data_type in field_data_types.items():
             value = request.form.get(field)
+            
             app.logger.debug("Field: %s, Value: %s", field, value)
             if value is None:
                 return f"Entrée invalide pour '{field}'"
@@ -55,9 +58,10 @@ def predict():
                     init_features[field] = float(value)
                 except ValueError:
                     return f"Entrée invalide pour '{field}'"
-    else:
-            init_features[field] = value
-        
+            else:
+             init_features[field] = value
+    
+
     if init_features['active_msg_vocaux'] == "oui":
         init_features['active_msg_vocaux'] = 1
     else:
@@ -124,7 +128,7 @@ def predict():
      # Make a prediction
     final_features = np.array(list(init_features.values())).reshape(1, -1)  # Convert to numpy array and reshape
     prediction = model.predict(final_features)[0]  # Access the first element of the prediction array
-
+    
     # Determine the prediction message
     if prediction == 1:
        message = " Le client résiliera son abonnement"
@@ -132,11 +136,22 @@ def predict():
        message = " Le client ne résiliera pas son abonnement"
     
     
-    return render_template('index.html', prediction_text='Résultat de prédiction: {}'.format(message))
+    return render_template('prediction.html', prediction_text='Résultat de prédiction: {}'.format(message))
+ 
+
+
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')                                       
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
+   
+
 
 
 
