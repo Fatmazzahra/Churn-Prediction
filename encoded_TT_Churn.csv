@@ -1,4 +1,4 @@
-﻿age,marie,genre,nb_jours_abonne,active_msg_vocaux,nb_msg_vocaux,nb_appel_jour,duree_appel_jour,cout_appel_jour,nb_appel_soiree,duree_appel_soiree,cout_appel_soiree,nb_appel_nuit,duree_appel_nuit,cout_appel_nuit,nb_appel_inter,duree_appel_inter,cout_appel_inter,nb_reclamation,churn,offer_type_target_mean
+﻿age,marie,genre,nb_jours_abonne,active_msg_vocaux,nb_msg_vocaux,nb_appel_jour,duree_appel_jour,cout_appel_jour,nb_appel_soiree,duree_appel_soiree,cout_appel_soiree,nb_appel_nuit,duree_appel_nuit,cout_appel_nuit,nb_appel_inter,duree_appel_inter,cout_appel_inter,nb_reclamation,churn,offer_type
 19,0,0,34,0,0,80,128.8,21.9,93,208.7,17.74,103,202.1,9.09,7,14,3.78,1,0,0.153424658
 19,0,0,38,0,0,110,96.9,16.47,75,241.4,20.52,69,141,6.35,3,10.8,2.92,0,0,0.134408602
 19,0,0,43,1,36,68,93.1,15.83,83,246.1,20.92,109,94.9,4.27,8,8.7,2.35,1,0,0.146341463

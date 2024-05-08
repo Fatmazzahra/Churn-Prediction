@@ -1,13 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 import numpy as np
 import logging 
-
 import pickle
-model =pickle.load(open("Model/final_modelxgb.pkl", "rb"))
 
-
+model =pickle.load(open("Model/final_modelRF.pkl", "rb"))
 app = Flask(__name__, static_folder='static', static_url_path='/static')
-
 logging.basicConfig(level=logging.INFO)
 
 @app.route('/')
@@ -16,8 +13,6 @@ def hello_world():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-   
-
     field_data_types = {
     'nb_jours_abonne': int,
     'genre': str,
@@ -76,7 +71,7 @@ def predict():
     if init_features['genre'] == "homme":
         init_features['genre'] = 0
     else:
-        init_features['genre'] = 1
+        init_features['genre'] = 1 
     
     option_map = {
         "Hayya": "0.16666666666666666",
@@ -123,30 +118,28 @@ def predict():
     if offer_type in option_map:
         init_features['offer_type'] = float(option_map[offer_type])
     else:
-        raise ValueError("Offer type not found in option map.")
+        raise ValueError("Type d'offre non trouvé dans la carte d'options.")
     
-     # Make a prediction
-    final_features = np.array(list(init_features.values())).reshape(1, -1)  # Convert to numpy array and reshape
-    prediction = model.predict(final_features)[0]  # Access the first element of the prediction array
+    # Faire une prédiction
+
+    # Convertir en tableau numpy et remodeler
+    final_features = np.array(list(init_features.values())).reshape(1, -1)
+   
+    prediction = model.predict(final_features)
     
-    # Determine the prediction message
+    # Déterminez le message de prédiction
     if prediction == 1:
        message = " Le client résiliera son abonnement"
     else:
        message = " Le client ne résiliera pas son abonnement"
     
-    
-    return render_template('prediction.html', prediction_text='Résultat de prédiction: {}'.format(message))
+    return render_template('prediction.html', 
+        prediction_text='Résultat de prédiction: {}'.format(message))
  
-
-
 
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')                                       
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

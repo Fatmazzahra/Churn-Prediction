@@ -7,6 +7,9 @@
     
     <link rel="stylesheet" href="C:\Users\chino\OneDrive\Bureau\stage_PFE\churn_project\Application\static\style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+          crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body style="background-image: url('static/TT.jpg');">
@@ -14,154 +17,248 @@
         <img src="{{ url_for('static', filename='LOGO_TT.png') }}" alt="Tunisie Telecom Logo" class="logo">
 
         <h1>PRÉDICTION DU CHURN DES CLIENTS TUNISIE TELECOM</h1>
-        <form action="/predict" method="post">
+        <form id="prediction-form" action="/predict" method="post">
             <div class="form-row">
-                <label for="nb_jours_abonne">Nombre de jours d'abonnement:</label>
-                <input type="number" id="nb_jours_abonne" name="nb_jours_abonne">
+                <div class="form-item">
+                    <label for="nb_jours_abonne">Nombre de jours d'abonnement:</label>
+                    <input type="number" id="nb_jours_abonne" name="nb_jours_abonne">
+                </div>
             </div>
 
             <div class="form-row">
-                <label for="genre">Genre:</label>
-                <div class="gender-buttons">
-                    <label for="genre_homme" class="radio-label">
-                        <input type="radio" id="genre_homme" name="genre" value="homme">
-                        <i class="fas fa-male"></i> Homme
-                    </label>
                 
-                    <label for="genre_femme" class="radio-label">
-                        <input type="radio" id="genre_femme" name="genre" value="femme">
-                        <i class="fas fa-female"></i> Femme
-                    </label>
+                <div class="form-item">
+                    <label for="genre">Genre:</label>
+                    
+                        <select id="genre" name="genre">
+                            <option value="homme"><i class="fas fa-male"></i> Homme</option>
+                            <option value="femme"><i class="fas fa-female"></i> Femme</option>
+                        </select>
+                    
                 </div>
                 
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age">
+                <div class="form-item">
+                    <label for="age">Âge:</label>
+                    <input type="number" id="age" name="age">
+                </div>
 
-                <label for="marie">Etat civil:</label>
-                <input type="radio" id="marie_oui" name="marie" value="oui">
-                <label for="marie_oui">
-                    <i class="fas fa-ring"></i> Marié
-                </label>
+                <div class="form-item">
+                    <label for="marie">État civil:</label>
+                    <select id="marie" name="marie">
+                        <option value="oui"><i class="fas fa-ring"></i> Marié(e)</option>
+                        <option value="non"><i class="fas fa-user-friends"></i> Célibataire</option>
+                    </select>
+                    
+                </div>
                 
-                <input type="radio" id="marie_non" name="marie" value="non">
-                <label for="marie_non">
-                    <i class="fas fa-user-friends"></i> Célibataire
-                </label>
                 
             </div>
 
             <div class="form-row">
-                <label for="nb_appel_jour">Nombre d'appels par jour:</label>
-                <input type="number" id="nb_appel_jour" name="nb_appel_jour">
-
-                <label for="duree_appel_jour">Durée de l'appel par jour en minutes:</label>
-                <input type="number" id="duree_appel_jour" name="duree_appel_jour">
-
-                <label for="cout_appel_jour">Cout des appels par jour:</label>
-                <input type="number" id="cout_appel_jour" name="cout_appel_jour">
+                <div class="form-item">
+                    <label for="nb_appel_jour">Nombre d'appels par jour:</label>
+                    <input type="number" id="nb_appel_jour" name="nb_appel_jour">
+                </div>
+                <div class="form-item">
+                    <label for="duree_appel_jour">Durée de l'appel par jour en minutes:</label>
+                    <input type="number" id="duree_appel_jour" name="duree_appel_jour" step="any">
+                </div>
+                <div class="form-item">
+                    <label for="cout_appel_jour">Coût des appels par jour:</label>
+                    <input type="number" id="cout_appel_jour" name="cout_appel_jour" step="any">
+                </div>
             </div>
 
             <div class="form-row">
-                <label for="nb_appel_soiree">Nombre d'appels par soirée:</label>
-                <input type="number" id="nb_appel_soiree" name="nb_appel_soiree">
-
-                <label for="duree_appel_soiree">Durée de l'appel par soirée en minutes:</label>
-                <input type="number" id="duree_appel_soiree" name="duree_appel_soiree">
-
-                <label for="cout_appel_soiree">Cout des appels par soirée:</label>
-                <input type="number" id="cout_appel_soiree" name="cout_appel_soiree">
+                <div class="form-item">
+                    <label for="nb_appel_soiree">Nombre d'appels par soirée:</label>
+                    <input type="number" id="nb_appel_soiree" name="nb_appel_soiree">
+                </div>
+                <div class="form-item">
+                    <label for="duree_appel_soiree">Durée de l'appel par soirée en minutes:</label>
+                    <input type="number" id="duree_appel_soiree" name="duree_appel_soiree" step="any">
+                </div>
+                <div class="form-item">
+                    <label for="cout_appel_soiree">Coût des appels par soirée:</label>
+                    <input type="number" id="cout_appel_soiree" name="cout_appel_soiree" step="any">
+                </div>
             </div>
 
             <div class="form-row">
-                <label for="nb_appel_nuit">Nombre d'appels par nuit:</label>
-                <input type="number" id="nb_appel_nuit" name="nb_appel_nuit">
+                <div class="form-item">
+                    <label for="nb_appel_nuit">Nombre d'appels par nuit:</label>
+                    <input type="number" id="nb_appel_nuit" name="nb_appel_nuit">
+                </div>
 
-                <label for="duree_appel_nuit">Durée de l'appel par nuit en minutes:</label>
-                <input type="number" id="duree_appel_nuit" name="duree_appel_nuit">
+                <div class="form-item">
+                    <label for="duree_appel_nuit">Durée de l'appel par nuit en minutes:</label>
+                    <input type="number" id="duree_appel_nuit" name="duree_appel_nuit" step="any">
+                </div>
 
-                <label for="cout_appel_nuit">Cout des appels par nuit:</label>
-                <input type="number" id="cout_appel_nuit" name="cout_appel_nuit">
+                <div class="form-item">
+                    <label for="cout_appel_nuit">Coût des appels par nuit:</label>
+                    <input type="number" id="cout_appel_nuit" name="cout_appel_nuit" step="any">
+                </div>
+
+
             </div>
 
             <div class="form-row">
-                <label for="nb_appel_inter">Nombre d'appels international:</label>
-                <input type="number" id="nb_appel_inter" name="nb_appel_inter">
+                <div class="form-item">
+                    <label for="nb_appel_inter">Nombre d'appels international:</label>
+                    <input type="number" id="nb_appel_inter" name="nb_appel_inter">
+                </div>
 
-                <label for="duree_appel_inter">Durée de l'appel international en minutes:</label>
-                <input type="number" id="duree_appel_inter" name="duree_appel_inter">
+                <div class="form-item">
+                    <label for="duree_appel_inter">Durée de l'appel international en minutes:</label>
+                    <input type="number" id="duree_appel_inter" name="duree_appel_inter" step="any">
+                </div>
 
-                <label for="cout_appel_inter">Cout des appels international:</label>
-                <input type="number" id="cout_appel_inter" name="cout_appel_inter">
+                <div class="form-item">
+                    <label for="cout_appel_inter">Coût des appels international:</label>
+                    <input type="number" id="cout_appel_inter" name="cout_appel_inter" step="any">
+                </div>
             </div>
 
             <div class="form-row">
-                <label>Activer option message vocaux:</label>
-                <input type="radio" id="active_msg_vocaux_oui" name="active_msg_vocaux" value="oui" checked>
-                <label for="active_msg_vocaux_yes">Oui</label>
-                <input type="radio" id="active_msg_vocaux_no" name="active_msg_vocaux" value="non">
-                <label for="active_msg_vocaux_non">Non</label>
+                <div class="form-item">
+                    <label for="active_msg_vocaux">Activer option message vocaux:</label>
+                    <select id="active_msg_vocaux" name="active_msg_vocaux">
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
+                </div>
+                
+                <div class="form-item">
+                    <label for="nb_msg_vocaux">Nombre des messages vocaux:</label>
+                    <input type="number" id="nb_msg_vocaux" name="nb_msg_vocaux">
+                </div>
+                <div class="form-item">
+                </div>
             </div>
 
             <div class="form-row">
-                <label for="nb_msg_vocaux">Nombre des messages vocaux:</label>
-                <input type="number" id="nb_msg_vocaux" name="nb_msg_vocaux">
 
-                <label for="nb_reclamation">Nombre des réclamations:</label>
-                <input type="number" id="nb_reclamation" name="nb_reclamation">
+                <div class="form-item">
+                    <label for="nb_reclamation">Nombre des réclamations:</label>
+                    <input type="number" id="nb_reclamation" name="nb_reclamation">
+                </div>
+                <div class="form-item">
+                    <label for="offer_type">Le nom d'offre tarifaire suivie:</label>
+                    <select id="offer_type" name="offer_type">
+                        <option value="Hayya">Hayya</option>
+                        <option value="PRE - 1=11">PRE - 1=11</option>
+                        <option value="PRE - 900 bonus">PRE - 900 bonus</option>
+                        <option value="PRE - AHLA">PRE - AHLA</option>
+                        <option value="PRE - Binetna">PRE - Binetna</option>
+                        <option value="PRE - Classic">PRE - Classic</option>
+                        <option value="PRE - Club Optimum Plus">PRE - Club Optimum Plus</option>
+                        <option value="PRE - Corporate Optimum Family">PRE - Corporate Optimum Family</option>
+                        <option value="PRE - CSS 1000% New">PRE - CSS 1000% New</option>
+                        <option value="PRE - CSS Mobile 1000%">PRE - CSS Mobile 1000%</option>
+                        <option value="PRE - CSSM 35mil/min">PRE - 1=11</option>
+                        <option value="PRE - Day Pass">PRE - Day Pass</option>
+                        <option value="PRE - Doublé">PRE - Doublé</option>
+                        <option value="PRE - Double Reinstal">PRE - Double Reinstal</option>
+                        <option value="PRE - E.M. 1000%">PRE - 1=11</option>
+                        <option value="PRE - Elissa 300%">PRE - Elissa 300%</option>
+                        <option value="PRE - Employe TT">PRE - Employe TT</option>
+                        <option value="PRE - ESS 1000% New">PRE - ESS 1000% New</option>
+                        <option value="PRE - ESS Mobile 35mil/min">PRE - ESS Mobile 35mil/min</option>
+                        <option value="PRE - Jawhara 35Mil">PRE - Jawhara 35Mil</option>
+                        <option value="PRE - New Elissa">PRE - New Elissa</option>
+                        <option value="PRE - offre 40">PRE - offre 40</option>
+                        <option value="PRE - Offre WL5">PRE - Offre WL5</option>
+                        <option value="PRE - Oulidha 1000%">PRE - Oulidha 1000%</option>
+                        <option value="PRE - Oulidha 2000%">PRE - Oulidha 2000%</option>
+                        <option value="PRE - Pack cle 4G">PRE - Pack cle 4G</option>
+                        <option value="PRE - Pass Etudiant">PRE - Pass Etudiant</option>
+                        <option value="PRE - Taraji Mobile 1500%">PRE - Taraji Mobile 1500%</option>
+                        <option value="PRE - Tawwa">PRE - Tawwa</option>
+                        <option value="PRE - TM 35mil/min">PRE - TM 35mil/min</option>
+                        <option value="PRE - Touriste SIM">PRE - Touriste SIM</option>
+                        <option value="PRE - Trankil ELISSA">PRE - Trankil ELISSA</option>
+                        <option value="PRE - Trankil TT">PRE - Trankil TT</option>
+                        <option value="PRE - TT 1000%">PRE - TT 1000%</option>
+                        <option value="PRE - TT 1500%">PRE - TT 1500%</option>
+                        <option value="PRE - TT 2000%">PRE - TT 2000%</option>
+                        <option value="PRE - TT 300%">PRE - TT 300%</option>
+                        <option value="PRE - Vendor_RE">PRE - Vendor_RE</option>
+                        <option value="SMS discount">SMS discount</option>
+                    </select>
+                </div>
+                
             </div>
             
             <div class="form-row">
-            <label for="offer_type">Le nom d'offre tarifaire suivie:</label>
-                <select id="offer_type" name="offer_type">
-                    <option value="Hayya">Hayya</option>
-                    <option value="PRE - 1=11">PRE - 1=11</option>
-                    <option value="PRE - 900 bonus">PRE - 900 bonus</option>
-                    <option value="PRE - AHLA">PRE - AHLA</option>
-                    <option value="PRE - Binetna">PRE - Binetna</option>
-                    <option value="PRE - Classic">PRE - Classic</option>
-                    <option value="PRE - Club Optimum Plus">PRE - Club Optimum Plus</option>
-                    <option value="PRE - Corporate Optimum Family">PRE - Corporate Optimum Family</option>
-                    <option value="PRE - CSS 1000% New">PRE - CSS 1000% New</option>
-                    <option value="PRE - CSS Mobile 1000%">PRE - CSS Mobile 1000%</option>
-                    <option value="PRE - CSSM 35mil/min">PRE - 1=11</option>
-                    <option value="PRE - Day Pass">PRE - Day Pass</option>
-                    <option value="PRE - Doublé">PRE - Doublé</option>
-                    <option value="PRE - Double Reinstal">PRE - Double Reinstal</option>
-                    <option value="PRE - E.M. 1000%">PRE - 1=11</option>
-                    <option value="PRE - Elissa 300%">PRE - Elissa 300%</option>
-                    <option value="PRE - Employe TT">PRE - Employe TT</option>
-                    <option value="PRE - ESS 1000% New">PRE - ESS 1000% New</option>
-                    <option value="PRE - ESS Mobile 35mil/min">PRE - ESS Mobile 35mil/min</option>
-                    <option value="PRE - Jawhara 35Mil">PRE - Jawhara 35Mil</option>
-                    <option value="PRE - New Elissa">PRE - New Elissa</option>
-                    <option value="PRE - offre 40">PRE - offre 40</option>
-                    <option value="PRE - Offre WL5">PRE - Offre WL5</option>
-                    <option value="PRE - Oulidha 1000%">PRE - Oulidha 1000%</option>
-                    <option value="PRE - Oulidha 2000%">PRE - Oulidha 2000%</option>
-                    <option value="PRE - Pack cle 4G">PRE - Pack cle 4G</option>
-                    <option value="PRE - Pass Etudiant">PRE - Pass Etudiant</option>
-                    <option value="PRE - Taraji Mobile 1500%">PRE - Taraji Mobile 1500%</option>
-                    <option value="PRE - Tawwa">PRE - Tawwa</option>
-                    <option value="PRE - TM 35mil/min">PRE - TM 35mil/min</option>
-                    <option value="PRE - Touriste SIM">PRE - Touriste SIM</option>
-                    <option value="PRE - Trankil ELISSA">PRE - Trankil ELISSA</option>
-                    <option value="PRE - Trankil TT">PRE - Trankil TT</option>
-                    <option value="PRE - TT 1000%">PRE - TT 1000%</option>
-                    <option value="PRE - TT 1500%">PRE - TT 1500%</option>
-                    <option value="PRE - TT 2000%">PRE - TT 2000%</option>
-                    <option value="PRE - TT 300%">PRE - TT 300%</option>
-                    <option value="PRE - Vendor_RE">PRE - Vendor_RE</option>
-                    <option value="SMS discount">SMS discount</option>
-                </select>
-            </div>
-            <button type="submit">Prédire</button>
-            <h3>{{ prediction_text }}</h3>
+                
 
-            <a href="{{ url_for('dashboard') }}" class="dashboard-link">
-                <button type="button">Visualisez les tableaux de bord</button>
-            </a>
+                <div class="form-item">
+                    <button type="submit" id="predict-button" >Prédire</button>
+                </div>
+
+                <div class="form-item prediction-message" form="prediction-form">
+                    <text>{{ prediction_text }}</text>
+                </div>
+
+                <div class="form-item">
+                    <a href="{{ url_for('dashboard') }}" class="dashboard-link">
+                        <button type="button" id="dashboard-button">Visualisez les tableaux de bord</button>
+                    </a>
+                </div>
+
+                
+            </div>
+            
+
         </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous">
+    </script>
+    <script>
+        // Function to save form data to local storage
+        function saveFormData() {
+            // Select all input elements in the form
+            const formInputs = document.querySelectorAll('input, select');
+            // Loop through each input element
+            formInputs.forEach(input => {
+                // Save the input value to local storage using the input's name attribute as the key
+                localStorage.setItem(input.name, input.value);
+            });
+        }
+    
+        // Function to load form data from local storage
+        function loadFormData() {
+            // Select all input elements in the form
+            const formInputs = document.querySelectorAll('input, select');
+            // Loop through each input element
+            formInputs.forEach(input => {
+                // Retrieve the input value from local storage using the input's name attribute as the key
+                const savedValue = localStorage.getItem(input.name);
+                // If a value is found in local storage, set the input value to it
+                if (savedValue !== null) {
+                    input.value = savedValue;
+                }
+            });
+        }
+    
+        // Call the loadFormData function when the page is loaded
+        window.onload = loadFormData;
+    
+        // Add event listener to the form for form submission
+        document.getElementById('prediction-form').addEventListener('submit', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            // Save the form data to local storage
+            saveFormData();
+            // Submit the form
+            this.submit();
+        });
+    </script>
+    
 </body>
 </html>
 
