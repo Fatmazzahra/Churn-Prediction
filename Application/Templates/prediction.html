@@ -218,46 +218,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous">
     </script>
-    <script>
-        // Function to save form data to local storage
-        function saveFormData() {
-            // Select all input elements in the form
-            const formInputs = document.querySelectorAll('input, select');
-            // Loop through each input element
-            formInputs.forEach(input => {
-                // Save the input value to local storage using the input's name attribute as the key
-                localStorage.setItem(input.name, input.value);
-            });
-        }
     
-        // Function to load form data from local storage
-        function loadFormData() {
-            // Select all input elements in the form
-            const formInputs = document.querySelectorAll('input, select');
-            // Loop through each input element
-            formInputs.forEach(input => {
-                // Retrieve the input value from local storage using the input's name attribute as the key
-                const savedValue = localStorage.getItem(input.name);
-                // If a value is found in local storage, set the input value to it
-                if (savedValue !== null) {
-                    input.value = savedValue;
-                }
-            });
-        }
-    
-        // Call the loadFormData function when the page is loaded
-        window.onload = loadFormData;
-    
-        // Add event listener to the form for form submission
-        document.getElementById('prediction-form').addEventListener('submit', function(event) {
-            // Prevent the default form submission behavior
-            event.preventDefault();
-            // Save the form data to local storage
-            saveFormData();
-            // Submit the form
-            this.submit();
-        });
-    </script>
     
 </body>
 </html>
