@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 import numpy as np
 import logging 
-import pickle
 
+import pickle
 model =pickle.load(open("Model/final_modelRF.pkl", "rb"))
+
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 logging.basicConfig(level=logging.INFO)
 
